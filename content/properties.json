@@ -1,3 +1,172 @@
 {
-  "items": []
+  "items": [
+    {
+      "price": 860000,
+      "whatsapp": "35699977388",
+      "region": "Central Malta",
+      "location": "St Julian's, Malta",
+      "title": "Stunning penthouse",
+      "images": [
+        "/images/whatsadfgsdfgsdfg0.jpeg",
+        "/images/hfdghd.jpeg",
+        "/images/whatsapp-image-2025-1.jpeg",
+        "/images/cxfghdfghd.jpeg",
+        "/images/sdfgsdfg-12-02-at-17.38.31.jpeg",
+        "/images/whatsapp-image-202dfgsdgfs1.jpeg",
+        "/images/whatssdgfsdfg02-at-17.38.32.jpeg",
+        "/images/whatsapp-imsdgfsdfg.jpeg"
+      ],
+      "type": "sale",
+      "description": "Elevate your lifestyle with this stunning 8th-floor penthouse in St. Julian’s, boasting magnificent open views from a spacious front terrace. This fully furnished is finished to high standards. It offers an optional 1 or 2-car lock-up garages.",
+      "features": [
+        {
+          "icon": "beds",
+          "label": "3 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "terrace",
+          "label": "Front terrace and Back balcony"
+        },
+        {
+          "icon": "parking",
+          "label": "Optional garage"
+        }
+      ]
+    },
+    {
+      "price": 925000,
+      "whatsapp": "35699977388",
+      "region": "North Malta",
+      "location": "Manikata, Malta",
+      "title": "Elegant Townhouse with a yard",
+      "images": [
+        "/images/01w.jpg",
+        "/images/02w.jpg",
+        "/images/03w.jpg",
+        "/images/04w.jpg",
+        "/images/05w.jpg",
+        "/images/06w.jpg",
+        "/images/07w.jpg",
+        "/images/08w.jpg",
+        "/images/09w.jpg",
+        "/images/10w.jpg"
+      ],
+      "type": "sale",
+      "description": "The home comes with a welcoming front terrace and a spacious backyard for outdoor living.\nA private jacuzzi provides an ideal space for relaxation.\nBeing freehold with airspace included, it offers excellent long-term potential.\nLocated on the ground floor, it ensures easy access and practical day-to-day living.",
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "pool",
+          "label": "Jacuzzi"
+        },
+        {
+          "icon": "garden",
+          "label": "Exterior"
+        }
+      ]
+    },
+    {
+      "price": 1700,
+      "whatsapp": "35699977388",
+      "region": "Central Malta",
+      "location": "Gzira, Malta",
+      "title": "Charming apartment close to seafront",
+      "images": [
+        "/images/02.jpg",
+        "/images/03q.jpg",
+        "/images/04q.jpg",
+        "/images/06.jpg",
+        "/images/08.jpg"
+      ],
+      "type": "rental",
+      "description": "Beautiful apartment close to seafront. Original features blend with modern comforts. Property consists of an open plan kitchen, living and dining area, with two balconies, two bedrooms, one with ensuite, and a spare bathroom, both with a balcony.",
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "seaview",
+          "label": "Close to seafront"
+        },
+        {
+          "icon": "terrace",
+          "label": "Balconies"
+        }
+      ]
+    },
+    {
+      "price": 2300,
+      "whatsapp": "35699977388",
+      "region": "Central Malta",
+      "location": "Sliema, Malta",
+      "title": "Apartment with a Terrace",
+      "images": [
+        "/images/00.jpg",
+        "/images/01-2-.jpg",
+        "/images/01.jpg",
+        "/images/03.jpg"
+      ],
+      "type": "rental",
+      "description": "Stunning modern apartment featuring sea view, terrace, fully furnished with high-end finishes. Perfect for professionals, couples or small families seeking comfort and style.",
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "seaview",
+          "label": "Sea View"
+        }
+      ]
+    },
+    {
+      "price": 1600,
+      "whatsapp": "35699977388",
+      "region": "North Malta",
+      "location": "Ibragg, Malta",
+      "title": "Apartment with balcony",
+      "images": [
+        "/images/00a.jpg",
+        "/images/13a.jpg",
+        "/images/11a.jpg",
+        "/images/12a.jpg"
+      ],
+      "type": "rental",
+      "description": "Nice apartment with balcony and designed interiors. Features include smart home technology and premium appliances throughout.",
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "terrace",
+          "label": "Balcony"
+        }
+      ]
+    }
+  ]
 }
