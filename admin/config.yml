@@ -1,0 +1,121 @@
+backend:
+  name: github
+  repo: nchsp/haize-realty
+  branch: main
+  auth_type: pkce
+  app_id: Ov23li355NiPS8o8BQem
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: haize
+    api_key: 321375781426967
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "agent"
+        label: "Your Information"
+        file: "content/settings.json"
+        fields:
+          - { label: "Your Name", name: "name", widget: "string" }
+          - { label: "Profile Photo", name: "photo", widget: "image", required: false }
+          - label: "Photo Shape"
+            name: "photoShape"
+            widget: "select"
+            options:
+              - { label: "⭕ Circle (portrait)", value: "circle" }
+              - { label: "🖼️ Landscape (wide)", value: "landscape" }
+            default: "circle"
+          - { label: "Favicon (browser tab icon)", name: "favicon", widget: "image", required: false, hint: "Square image, at least 32x32px. PNG or ICO recommended." }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "WhatsApp Number (just digits)", name: "whatsapp", widget: "string" }
+          - label: "Social Links"
+            name: "socialLinks"
+            widget: "list"
+            hint: "Add, remove, or drag to reorder your social links"
+            fields:
+              - label: "Platform"
+                name: "platform"
+                widget: "select"
+                options:
+                  - { label: "📌 Pinterest", value: "pinterest" }
+                  - { label: "📘 Facebook", value: "facebook" }
+                  - { label: "📷 Instagram", value: "instagram" }
+                  - { label: "🧵 Threads", value: "threads" }
+                  - { label: "💼 LinkedIn", value: "linkedin" }
+                  - { label: "🐦 Twitter/X", value: "twitter" }
+                  - { label: "🎵 TikTok", value: "tiktok" }
+                  - { label: "▶️ YouTube", value: "youtube" }
+                  - { label: "💬 WhatsApp", value: "whatsapp" }
+                  - { label: "✈️ Telegram", value: "telegram" }
+                  - { label: "✉️ Email", value: "email" }
+                  - { label: "🌐 Website", value: "website" }
+                  - { label: "📋 Form", value: "form" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Social Links Layout"
+            name: "socialLinksLayout"
+            widget: "select"
+            options:
+              - { label: "Single row (all icons in one line)", value: "single-row" }
+              - { label: "Multiple rows (4 per row)", value: "multi-row" }
+            default: "single-row"
+          - { label: "Page Title", name: "pageTitle", widget: "string", default: "Featured Properties", hint: "The heading above your property listings" }
+
+  - name: "properties"
+    label: "Properties"
+    files:
+      - name: "property-list"
+        label: "All Properties"
+        file: "content/properties.json"
+        fields:
+          - name: "items"
+            label: "Properties"
+            widget: "list"
+            hint: "Add, remove, or drag to reorder properties"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Region", name: "region", widget: "select", options: ["Central Malta", "North Malta", "South Malta", "Gozo"] }
+              - { label: "Type", name: "type", widget: "select", options: ["rental", "sale", "commercial"] }
+              - { label: "Price (just the number)", name: "price", widget: "number" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "WhatsApp Number", name: "whatsapp", widget: "string" }
+              - label: "Image Fit"
+                name: "imageFit"
+                widget: "select"
+                options:
+                  - { label: "Cover (fill frame, may crop)", value: "cover" }
+                  - { label: "Contain (show full image)", value: "contain" }
+                default: "cover"
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                hint: "Add as many photos as you want. Use Cloudinary folders to organize!"
+                field: { label: "Image", name: "image", widget: "image" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                fields:
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    options:
+                      - { label: "🛏️ Beds", value: "beds" }
+                      - { label: "🛁 Baths", value: "baths" }
+                      - { label: "📐 Square Meters", value: "sqm" }
+                      - { label: "🚗 Parking", value: "parking" }
+                      - { label: "🌊 Sea View", value: "seaview" }
+                      - { label: "☀️ Terrace", value: "terrace" }
+                      - { label: "❄️ A/C", value: "ac" }
+                      - { label: "📶 WiFi", value: "wifi" }
+                      - { label: "🐾 Pets OK", value: "pets" }
+                      - { label: "🏊 Pool", value: "pool" }
+                      - { label: "🌳 Garden", value: "garden" }
+                      - { label: "🏖️ Beach", value: "beach" }
+                      - { label: "🏢 Office", value: "office" }
+                      - { label: "👥 Desks", value: "desks" }
+                  - { label: "Label", name: "label", widget: "string" }
