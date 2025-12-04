@@ -916,11 +916,12 @@
                     
                     const imageFitClass = prop.imageFit === 'contain' ? 'contain' : '';
                     
-                    const slidesHtml = prop.images ? prop.images.map((img, i) => 
-                        `<div class="carousel-slide ${i === 0 ? 'active' : ''}">
-                            <img src="${img}" alt="${prop.title}" class="${imageFitClass}">
-                        </div>`
-                    ).join('') : '';
+                    const slidesHtml = prop.images ? prop.images.map((img, i) => {
+    const imgUrl = typeof img === 'string' ? img : img.src;
+    return `<div class="carousel-slide ${i === 0 ? 'active' : ''}">
+        <img src="${imgUrl}" alt="${prop.title}" class="${imageFitClass}">
+    </div>`;
+}).join('') : '';
                     
                     const dotsHtml = prop.images ? prop.images.map((_, i) => 
                         `<span class="dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${carouselId}, ${i})"></span>`
