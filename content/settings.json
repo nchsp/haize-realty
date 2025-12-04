@@ -1,6 +1,12 @@
 {
-  "bio": "Malta real estate with soul, that's what I offer as part of the Simon Mamo Real Estate team. I help people find homes, business spaces, and investment properties through personalized service and honest market insights.",
   "name": "Thomas Inchauspe",
+  "photo": "/images/sitepic.jpeg",
+  "photoShape": "landscape",
+  "favicon": "",
+  "bio": "Malta real estate with soul, that's what I offer as part of the\n Simon Mamo Real Estate team. I help people find homes, business spaces, and investment properties through personalized service and honest market insights.",
+  "phone": "+356 9997 7388",
+  "email": "haize.realty@outlook.com",
+  "whatsapp": "35699977388",
   "socialLinks": [
     {
       "platform": "pinterest",
@@ -27,11 +33,5 @@
       "url": "https://forms.gle/D87cfgwB4oFWqrpU6"
     }
   ],
-  "phone": "+356 9997 7388",
-  "photoShape": "landscape",
-  "whatsapp": "35699977388",
-  "photo": "/images/sitepic.jpeg",
-  "favicon": "",
-  "socialLinksLayout": "single-row",
-  "email": "haize.realty@outlook.com"
+  "socialLinksLayout": "single-row"
 }
