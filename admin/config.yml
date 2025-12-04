@@ -94,8 +94,9 @@ collections:
               - label: "Images"
                 name: "images"
                 widget: "list"
-                hint: "Add as many photos as you want. Use Cloudinary folders to organize!"
-                field: { label: "Image", name: "image", widget: "image" }
+                hint: "Add as many photos as you want"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
               - label: "Features"
                 name: "features"
                 widget: "list"
