@@ -79,7 +79,21 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Location", name: "location", widget: "string" }
-              - { label: "Region", name: "region", widget: "select", options: ["Central Malta", "North Malta", "South Malta", "Gozo"] }
+              - label: "Region"
+                name: "region"
+                widget: "select"
+                options:
+                  - "Central Malta"
+                  - "North Malta"
+                  - "North-West Malta"
+                  - "North-East Malta"
+                  - "South Malta"
+                  - "South-West Malta"
+                  - "South-East Malta"
+                  - "West Malta"
+                  - "East Malta"
+                  - "Gozo"
+                  - "Comino"
               - { label: "Type", name: "type", widget: "select", options: ["rental", "sale", "commercial"] }
               - { label: "Price (just the number)", name: "price", widget: "number" }
               - { label: "Description", name: "description", widget: "text" }
