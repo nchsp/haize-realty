@@ -3,6 +3,7 @@
     {
       "price": 860000,
       "whatsapp": "35699977388",
+      "imageFit": "cover",
       "region": "Central Malta",
       "location": "St Julian's, Malta",
       "title": "Stunning penthouse",
@@ -40,6 +41,7 @@
     {
       "price": 925000,
       "whatsapp": "35699977388",
+      "imageFit": "cover",
       "region": "North Malta",
       "location": "Manikata, Malta",
       "title": "Elegant Townhouse with a yard",
@@ -79,6 +81,7 @@
     {
       "price": 1700,
       "whatsapp": "35699977388",
+      "imageFit": "cover",
       "region": "Central Malta",
       "location": "Gzira, Malta",
       "title": "Charming apartment close to seafront",
@@ -113,6 +116,7 @@
     {
       "price": 2300,
       "whatsapp": "35699977388",
+      "imageFit": "cover",
       "region": "Central Malta",
       "location": "Sliema, Malta",
       "title": "Apartment with a Terrace",
@@ -142,6 +146,7 @@
     {
       "price": 1600,
       "whatsapp": "35699977388",
+      "imageFit": "cover",
       "region": "North Malta",
       "location": "Ibragg, Malta",
       "title": "Apartment with balcony",
