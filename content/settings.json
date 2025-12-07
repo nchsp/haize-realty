@@ -36,7 +36,7 @@
     }
   ],
   "formButtonText": "Find your place!",
-  "showLanguageSwitcher": "show",
+  "showLanguageSwitcher": "hide",
   "pageTitle": "Highlighted Properties",
   "socialLinksLayout": "single-row"
 }
