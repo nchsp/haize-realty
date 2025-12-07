@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="p:domain_verify" content="fd54babef6a68d1d64d7674952209bc0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haize Realty - Malta Properties</title>
+    <link rel="icon" type="image/svg+xml" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%23006d77'/%3E%3Cpath d='M4 17 C6 17, 8 15, 9 13 C10 11, 12 9, 15 9 C18 9, 21 11, 21 14 C21 17, 18 20, 15 20 C12.5 20, 10.5 18.5, 10.5 16 C10.5 14, 12 12.5, 14 12.5 C15.5 12.5, 16.5 13.5, 16.5 14.75 C16.5 15.8, 15.6 16.5, 14.7 16.5 C14 16.5, 13.5 16, 13.5 15.5 C13.5 15, 14 14.6, 14.3 14.6' fill='none' stroke='white' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --lagoon-deep: #006d77;
+            --lagoon-mid: #0097a7;
+            --lagoon-bright: #40e0d0;
+            --lagoon-light: #83f3e4;
+            --limestone: #e8dcc4;
+            --limestone-light: #f5f0e6;
+            --limestone-gold: #d4a574;
+            --limestone-warm: #c9a86c;
+            --text-dark: #2d3a3a;
+            --text-mid: #4a5568;
+            --near-black: #1a1a1a;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--limestone-light);
+            color: var(--text-dark);
+        }
+
+        /* Loading state - hide content until data loads */
+        .loading-hidden {
+            visibility: hidden;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 20%;
+            min-width: 260px;
+            max-width: 320px;
+            height: 100vh;
+            background: linear-gradient(175deg, var(--lagoon-deep) 0%, #005a5f 60%, #004a4f 100%);
+            padding: 28px 24px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            z-index: 100;
+            border: 1px solid var(--near-black);
+            box-shadow: 12px 0 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--lagoon-bright) 0px,
+                var(--lagoon-bright) 18px,
+                transparent 18px,
+                transparent 22px
+            );
+        }
+
+        .sidebar > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: -50%;
+            width: 200%;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='%2340e0d0' fill-opacity='0.15'/%3E%3C/svg%3E") repeat-x;
+            background-size: 600px 80px;
+            animation: wave 8s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 3px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='%2340e0d0' fill-opacity='0.1'/%3E%3C/svg%3E") repeat-x;
+            background-size: 600px 80px;
+            animation: wave 12s linear infinite reverse;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding-bottom: 90px;
+            width: 100%;
+            margin-top: -2.5px;
+        }
+
+        .profile-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1a1a1a;
+            outline: 3px solid var(--lagoon-bright);
+            outline-offset: 0px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .profile-photo.landscape {
+            width: 90%;
+            max-width: 220px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+        }
+
+        .profile-photo-placeholder {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 14px;
+            border: 4px solid #1a1a1a;
+            outline: 3px solid var(--lagoon-bright);
+            outline-offset: 0px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .profile-photo-placeholder.landscape {
+            width: 90%;
+            max-width: 220px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+        }
+
+        .agent-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .signature {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: #111111;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        /* Share button styling for row 2 */
+        .share-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.7rem;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+        }
+
+        .share-btn.under-socials {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Share button color options */
+        .share-btn.color-dark {
+            background: rgba(0, 0, 0, 0.35);
+            border-color: rgba(255,255,255,0.15);
+        }
+        .share-btn.color-dark:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .share-btn.color-teal {
+            background: rgba(64, 224, 208, 0.3);
+            border-color: rgba(64, 224, 208, 0.5);
+        }
+        .share-btn.color-teal:hover {
+            background: var(--lagoon-bright);
+            color: #1a1a1a;
+        }
+
+        .share-btn.color-gold {
+            background: rgba(212, 165, 116, 0.4);
+            border-color: rgba(212, 165, 116, 0.5);
+        }
+        .share-btn.color-gold:hover {
+            background: var(--limestone-gold);
+            color: #1a1a1a;
+        }
+
+        .share-btn.color-lagoon {
+            background: rgba(0, 109, 119, 0.5);
+            border-color: rgba(0, 109, 119, 0.6);
+        }
+        .share-btn.color-lagoon:hover {
+            background: var(--lagoon-deep);
+        }
+
+        .share-btn.color-white {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .share-btn.color-white:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #1a1a1a;
+        }
+
+        .share-btn.color-red {
+            background: rgba(220, 53, 69, 0.5);
+            border-color: rgba(220, 53, 69, 0.6);
+        }
+        .share-btn.color-red:hover {
+            background: #dc3545;
+        }
+
+        /* Mobile share button - top right */
+        .share-btn-mobile {
+            display: none;
+        }
+
+        .bio {
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.75);
+            text-align: center;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+
+        .contact-info {
+            width: 100%;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 12px 14px;
+            border: 1px solid rgba(64, 224, 208, 0.2);
+            position: relative;
+        }
+
+        .contact-info::before,
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-color: var(--lagoon-bright);
+            border-style: solid;
+            opacity: 0.6;
+        }
+        .contact-info::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+            border-radius: 3px 0 0 0;
+        }
+        .contact-info::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+            border-radius: 0 0 3px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-item:not(:last-child) {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .contact-icons {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-icons i {
+            color: var(--lagoon-bright);
+            font-size: 0.85rem;
+        }
+
+        /* Language Links - Top Right */
+        .lang-links {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            z-index: 50;
+        }
+
+        .lang-link {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-mid);
+            cursor: pointer;
+            transition: color 0.2s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-link:hover {
+            color: var(--lagoon-deep);
+        }
+
+        .lang-link.active {
+            color: var(--lagoon-deep);
+            font-weight: 600;
+        }
+
+        .lang-link.loading {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .lang-separator {
+            color: var(--limestone-gold);
+            margin: 0 8px;
+            font-size: 0.8rem;
+        }
+
+        /* Mobile lang links in sidebar - hidden on desktop */
+        .lang-links-mobile {
+            display: none;
+        }
+
+        .social-links {
+            position: absolute;
+            bottom: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .social-row {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-link {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+        }
+
+        /* Color options */
+        .social-link.color-dark {
+            background: rgba(0, 0, 0, 0.35);
+            border-color: rgba(255,255,255,0.15);
+        }
+        .social-link.color-dark:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .social-link.color-teal {
+            background: rgba(64, 224, 208, 0.3);
+            border-color: rgba(64, 224, 208, 0.5);
+        }
+        .social-link.color-teal:hover {
+            background: var(--lagoon-bright);
+            color: #1a1a1a;
+        }
+
+        .social-link.color-gold {
+            background: rgba(212, 165, 116, 0.4);
+            border-color: rgba(212, 165, 116, 0.5);
+        }
+        .social-link.color-gold:hover {
+            background: var(--limestone-gold);
+            color: #1a1a1a;
+        }
+
+        .social-link.color-lagoon {
+            background: rgba(0, 109, 119, 0.5);
+            border-color: rgba(0, 109, 119, 0.6);
+        }
+        .social-link.color-lagoon:hover {
+            background: var(--lagoon-deep);
+        }
+
+        .social-link.color-white {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .social-link.color-white:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #1a1a1a;
+        }
+
+        .social-link.color-red {
+            background: rgba(220, 53, 69, 0.5);
+            border-color: rgba(220, 53, 69, 0.6);
+        }
+        .social-link.color-red:hover {
+            background: #dc3545;
+        }
+
+        .threads-icon, .social-svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* Form Button - Separate prominent button */
+        .form-button {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(212, 165, 116, 0.4);
+            border: 1px solid rgba(212, 165, 116, 0.5);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-button:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Form button under social links (single row mode) */
+        .form-button.under-socials {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            margin-top: 10px;
+        }
+
+        .form-button.under-socials:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Form button color options */
+        .form-button.color-gold {
+            background: rgba(212, 165, 116, 0.4);
+            border-color: rgba(212, 165, 116, 0.5);
+        }
+        .form-button.color-gold:hover {
+            background: var(--limestone-gold);
+            color: #1a1a1a;
+        }
+
+        .form-button.color-teal {
+            background: rgba(64, 224, 208, 0.3);
+            border-color: rgba(64, 224, 208, 0.5);
+        }
+        .form-button.color-teal:hover {
+            background: var(--lagoon-bright);
+            color: #1a1a1a;
+        }
+
+        .form-button.color-dark {
+            background: rgba(0, 0, 0, 0.35);
+            border-color: rgba(255,255,255,0.15);
+        }
+        .form-button.color-dark:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .form-button.color-lagoon {
+            background: rgba(0, 109, 119, 0.5);
+            border-color: rgba(0, 109, 119, 0.6);
+        }
+        .form-button.color-lagoon:hover {
+            background: var(--lagoon-deep);
+        }
+
+        .form-button.color-white {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .form-button.color-white:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #1a1a1a;
+        }
+
+        .form-button.color-red {
+            background: rgba(220, 53, 69, 0.5);
+            border-color: rgba(220, 53, 69, 0.6);
+        }
+        .form-button.color-red:hover {
+            background: #dc3545;
+        }
+
+        /* Pulsing dot */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--lagoon-bright);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 0 0 rgba(64, 224, 208, 0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(64, 224, 208, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 6px rgba(64, 224, 208, 0);
+            }
+        }
+
+        .main-content {
+            margin-left: 20%;
+            flex: 1;
+            padding: 40px 50px;
+            background: var(--limestone-light);
+            min-height: 100vh;
+            border: 1px solid var(--near-black);
+            position: relative;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        @media (min-width: 1700px) {
+            .sidebar { width: 320px; }
+            .main-content { margin-left: 320px; }
+        }
+
+        @media (min-width: 1300px) and (max-width: 1699px) {
+            .main-content { margin-left: max(20%, 260px); }
+        }
+
+        .page-header {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.3rem;
+            color: var(--lagoon-deep);
+            font-weight: 600;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 30px rgba(0, 109, 119, 0.08);
+            border: 1px solid rgba(0, 109, 119, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 50px rgba(0, 109, 119, 0.12);
+        }
+
+        .carousel {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+            background: var(--limestone);
+        }
+
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-slide img.contain {
+            object-fit: contain;
+            background: var(--limestone);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--lagoon-deep);
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .carousel-btn:hover {
+            background: var(--lagoon-deep);
+            color: white;
+        }
+
+        .carousel-btn.prev { left: 20px; }
+        .carousel-btn.next { right: 20px; }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--lagoon-bright);
+            width: 28px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 10;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .badge-rental {
+            background: linear-gradient(135deg, var(--lagoon-deep) 0%, var(--lagoon-mid) 100%);
+            color: white;
+        }
+
+        .badge-sale {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            color: white;
+        }
+
+        .badge-commercial {
+            background: linear-gradient(135deg, #5a5a5a 0%, #3d3d3d 100%);
+            color: white;
+        }
+
+        .location-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            font-weight: 500;
+            color: white;
+            z-index: 10;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .property-info {
+            padding: 28px 32px 32px;
+        }
+
+        .property-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .property-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--lagoon-deep);
+        }
+
+        .property-price span {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #a0aec0;
+        }
+
+        .property-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .property-location {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .property-location i {
+            color: var(--lagoon-mid);
+            font-size: 0.85rem;
+        }
+
+        .property-description {
+            color: var(--text-mid);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-top: 1px solid #e8e4dc;
+            border-bottom: 1px solid #e8e4dc;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-mid);
+            font-size: 0.9rem;
+        }
+
+        .feature i {
+            color: var(--lagoon-mid);
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+            background: rgba(0, 109, 119, 0.1);
+            color: var(--lagoon-deep);
+            border: 1px solid rgba(0, 109, 119, 0.2);
+        }
+
+        .contact-btn:hover {
+            background: rgba(0, 109, 119, 0.15);
+            border-color: rgba(0, 109, 119, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .contact-btn i {
+            font-size: 1.05rem;
+            color: #25d366;
+        }
+
+        #properties-container {
+            min-height: 200px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-mid);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+                height: auto;
+                min-height: auto;
+                padding: 30px 20px 30px;
+            }
+            .sidebar-content {
+                padding-bottom: 20px;
+            }
+            .wave-container {
+                display: none;
+            }
+            .social-links {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 20px;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 25px 15px;
+            }
+            .lang-links {
+                display: none;
+            }
+            .lang-links-mobile {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                z-index: 50;
+            }
+            .lang-links-mobile .lang-separator {
+                color: var(--lagoon-bright);
+                font-size: 0.5rem;
+                line-height: 1;
+                margin: 2px 0;
+            }
+            .lang-links-mobile .lang-link {
+                color: rgba(255,255,255,0.7);
+                font-size: 0.7rem;
+            }
+            .lang-links-mobile .lang-link:hover {
+                color: white;
+            }
+            .lang-links-mobile .lang-link.active {
+                color: var(--lagoon-bright);
+            }
+            .share-btn {
+                display: none;
+            }
+            .share-btn-mobile {
+                display: flex;
+                position: absolute;
+                top: 32px;
+                right: 15px;
+                z-index: 50;
+                background: rgba(255,255,255,0.15);
+                border: 1px solid rgba(255,255,255,0.25);
+                border-radius: 50%;
+                width: 28px;
+                height: 28px;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: rgba(255,255,255,0.7);
+                font-size: 0.75rem;
+            }
+            .form-button {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 15px;
+            }
+            .form-button:hover {
+                transform: translateY(-2px);
+            }
+            .main-content::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -20px;
+                width: 20px;
+                box-shadow: 12px 0 40px rgba(0, 0, 0, 0.4);
+                z-index: 10;
+                pointer-events: none;
+            }
+            .carousel {
+                height: 280px;
+            }
+            .page-title {
+                font-size: 1.6rem;
+            }
+            .page-header {
+                margin-bottom: 25px;
+            }
+            .property-header {
+                flex-direction: column;
+            }
+            .property-card {
+                margin-bottom: 25px;
+                border-radius: 15px;
+            }
+            .property-info {
+                padding: 20px;
+            }
+            .property-title {
+                font-size: 1.2rem;
+            }
+            .property-price {
+                font-size: 1.6rem;
+            }
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            .carousel-btn.prev { left: 10px; }
+            .carousel-btn.next { right: 10px; }
+            .property-badge {
+                padding: 8px 14px;
+                font-size: 0.7rem;
+            }
+            .location-indicator {
+                font-size: 0.8rem;
+            }
+            .contact-info {
+                padding: 10px 12px;
+            }
+            .bio {
+                font-size: 0.8rem;
+            }
+            .agent-name {
+                font-size: 1.3rem;
+            }
+            .signature {
+                font-size: 1.5rem;
+            }
+            .profile-photo, .profile-photo-placeholder {
+                width: 90px;
+                height: 90px;
+            }
+            .profile-photo.landscape, .profile-photo-placeholder.landscape {
+                width: 80%;
+                max-width: 200px;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .carousel {
+                height: 220px;
+            }
+            .property-info {
+                padding: 18px 15px 22px;
+            }
+            .property-features {
+                gap: 10px;
+            }
+            .feature {
+                font-size: 0.8rem;
+            }
+            .contact-btn {
+                padding: 10px 16px;
+                font-size: 0.82rem;
+            }
+            .carousel-dots {
+                bottom: 12px;
+            }
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+            .dot.active {
+                width: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="wave-container">
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+
+            <div class="sidebar-content loading-hidden" id="sidebar-content">
+                <div class="profile-photo-placeholder" id="profile-container">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <h1 class="agent-name" id="agent-name"></h1>
+                
+                <p class="signature">Haize</p>
+
+                <p class="bio" id="bio"></p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icons">
+                            <i class="fas fa-mobile-alt"></i>
+                            <i class="fab fa-whatsapp"></i>
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <span id="phone"></span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icons">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <span id="email"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links loading-hidden" id="social-links">
+                <!-- Social links loaded dynamically -->
+            </div>
+
+            <!-- Separate Form Button -->
+            <a href="#" class="form-button loading-hidden" id="form-button" target="_blank" rel="noopener noreferrer">
+                <span class="pulse-dot"></span>
+                <span class="form-button-text">Find a Rental</span>
+            </a>
+
+            <!-- Share Button (shown when configured in social links) -->
+            <button class="share-btn loading-hidden" onclick="shareWebsite()" title="Share">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Language links for mobile - top left of sidebar -->
+            <div class="lang-links-mobile">
+                <span class="lang-link active" data-lang="en">EN</span>
+                <span class="lang-separator">·</span>
+                <span class="lang-link" data-lang="fr">FR</span>
+                <span class="lang-separator">·</span>
+                <span class="lang-link" data-lang="es">ES</span>
+            </div>
+
+            <!-- Share button for mobile - top right of sidebar -->
+            <button class="share-btn-mobile" onclick="shareWebsite()" title="Share">
+                <i class="fas fa-share-alt"></i>
+            </button>
+        </aside>
+
+        <main class="main-content">
+            <div class="lang-links">
+                <span class="lang-link active" data-lang="en">EN</span>
+                <span class="lang-separator">·</span>
+                <span class="lang-link" data-lang="fr">FR</span>
+                <span class="lang-separator">·</span>
+                <span class="lang-link" data-lang="es">ES</span>
+            </div>
+
+            <header class="page-header">
+                <h2 class="page-title" id="page-title">Featured Properties</h2>
+            </header>
+
+            <div id="properties-container">
+                <p class="loading">Loading properties...</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Social media icons mapping
+        const socialIcons = {
+            pinterest: '<i class="fab fa-pinterest-p"></i>',
+            facebook: '<i class="fab fa-facebook-f"></i>',
+            instagram: '<i class="fab fa-instagram"></i>',
+            threads: '<svg class="social-svg" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.6 96c.208-24.682 5.636-43.966 16.128-57.317 11.215-14.258 28.466-21.573 51.275-21.742 22.997.174 40.526 7.557 52.103 21.95 5.681 7.06 9.882 15.857 12.53 26.2l16.502-4.047c-3.178-12.471-8.467-23.437-15.837-32.606C148.053 10.953 126.622 1.88 98.958 1.68h-.09C71.254 1.88 50.016 10.972 35.86 28.632 20.209 48.181 12.136 76.16 12 96.56v.88c.136 20.4 8.209 48.379 23.86 67.928 14.156 17.66 35.394 26.752 63.108 26.952h.09c24.488-.163 42.136-6.85 56.77-21.479 19.156-19.163 18.563-43.398 12.34-57.912-4.46-10.413-13.03-18.796-25.631-24.942z"/><path d="M98.966 129.545c-10.08.553-20.329-3.97-21.058-14.687-.559-8.212 5.642-17.361 25.07-18.476 2.084-.12 4.133-.178 6.143-.178 6.273 0 12.143.553 17.514 1.606-1.992 27.091-17.086 31.183-27.669 31.735z"/></svg>',
+            linkedin: '<i class="fab fa-linkedin-in"></i>',
+            twitter: '<i class="fab fa-x-twitter"></i>',
+            tiktok: '<i class="fab fa-tiktok"></i>',
+            youtube: '<i class="fab fa-youtube"></i>',
+            whatsapp: '<i class="fab fa-whatsapp"></i>',
+            telegram: '<i class="fab fa-telegram"></i>',
+            email: '<i class="fas fa-envelope"></i>',
+            website: '<i class="fas fa-globe"></i>',
+            form: '<i class="fas fa-clipboard-list"></i>',
+            share: '<i class="fas fa-share-alt"></i>'
+        };
+
+        // Feature icons mapping
+        const featureIcons = {
+            'beds': 'fa-bed',
+            'baths': 'fa-bath',
+            'sqm': 'fa-vector-square',
+            'parking': 'fa-car',
+            'seaview': 'fa-water',
+            'terrace': 'fa-sun',
+            'ac': 'fa-snowflake',
+            'wifi': 'fa-wifi',
+            'pets': 'fa-paw',
+            'pool': 'fa-swimming-pool',
+            'garden': 'fa-tree',
+            'beach': 'fa-umbrella-beach',
+            'office': 'fa-building',
+            'desks': 'fa-users'
+        };
+
+        // Load settings
+        fetch('content/settings.json')
+            .then(r => r.json())
+            .then(settings => {
+                if (settings.name) document.getElementById('agent-name').textContent = settings.name;
+                if (settings.bio) document.getElementById('bio').textContent = settings.bio;
+                if (settings.phone) document.getElementById('phone').textContent = settings.phone;
+                if (settings.email) document.getElementById('email').textContent = settings.email;
+                if (settings.pageTitle) document.getElementById('page-title').textContent = settings.pageTitle;
+                
+                // Load custom favicon if set
+                if (settings.favicon) {
+                    document.getElementById('favicon').href = settings.favicon;
+                }
+                
+                const container = document.getElementById('profile-container');
+                const isLandscape = settings.photoShape === 'landscape';
+                
+                if (settings.photo) {
+                    const img = document.createElement('img');
+                    img.src = settings.photo;
+                    img.className = 'profile-photo' + (isLandscape ? ' landscape' : '');
+                    img.alt = settings.name;
+                    container.replaceWith(img);
+                } else if (isLandscape) {
+                    container.classList.add('landscape');
+                }
+                
+                // Render social links dynamically with rows and colors
+                const socialContainer = document.getElementById('social-links');
+                const formButton = document.getElementById('form-button');
+                const shareBtn = document.querySelector('.share-btn');
+                
+                if (settings.socialLinks && settings.socialLinks.length > 0) {
+                    // Find form link and share link
+                    const formLink = settings.socialLinks.find(link => link.platform === 'form' && link.url);
+                    const shareLink = settings.socialLinks.find(link => link.platform === 'share');
+                    const otherLinks = settings.socialLinks.filter(link => link.platform !== 'form' && link.platform !== 'share');
+                    
+                    // Group links by row (default to row 1)
+                    const row1Links = otherLinks.filter(link => link.url && (!link.row || link.row === '1'));
+                    const row2Links = otherLinks.filter(link => link.url && link.row === '2');
+                    
+                    // Check where form and share should go
+                    const formInRow1 = formLink && (!formLink.row || formLink.row === '1');
+                    const formInRow2 = formLink && formLink.row === '2';
+                    const shareInRow1 = shareLink && (!shareLink.row || shareLink.row === '1');
+                    const shareInRow2 = shareLink && shareLink.row === '2';
+                    
+                    // Set form button
+                    if (formLink) {
+                        formButton.href = formLink.url;
+                        const colorClass = formLink.color ? `color-${formLink.color}` : 'color-gold';
+                        formButton.classList.add(colorClass);
+                        const buttonText = formButton.querySelector('.form-button-text');
+                        if (settings.formButtonText) {
+                            buttonText.textContent = settings.formButtonText;
+                        }
+                        formButton.classList.remove('loading-hidden');
+                        formButton.classList.add('under-socials');
+                    } else {
+                        formButton.style.display = 'none';
+                    }
+                    
+                    // Set share button
+                    if (shareLink) {
+                        const colorClass = shareLink.color ? `color-${shareLink.color}` : 'color-dark';
+                        shareBtn.className = `share-btn under-socials ${colorClass}`;
+                        shareBtn.classList.remove('loading-hidden');
+                    } else {
+                        shareBtn.style.display = 'none';
+                    }
+                    
+                    let html = '';
+                    
+                    // Row 1
+                    if (row1Links.length > 0 || formInRow1 || shareInRow1) {
+                        html += '<div class="social-row" id="social-row-1">';
+                        html += row1Links.map(link => {
+                            const icon = socialIcons[link.platform] || '<i class="fas fa-link"></i>';
+                            const title = link.platform.charAt(0).toUpperCase() + link.platform.slice(1);
+                            const colorClass = link.color ? `color-${link.color}` : 'color-dark';
+                            return `<a href="${link.url}" class="social-link ${colorClass}" title="${title}" target="_blank" rel="noopener noreferrer">${icon}</a>`;
+                        }).join('');
+                        html += '</div>';
+                    }
+                    
+                    // Row 2
+                    if (row2Links.length > 0 || formInRow2 || shareInRow2) {
+                        html += '<div class="social-row" id="social-row-2">';
+                        html += row2Links.map(link => {
+                            const icon = socialIcons[link.platform] || '<i class="fas fa-link"></i>';
+                            const title = link.platform.charAt(0).toUpperCase() + link.platform.slice(1);
+                            const colorClass = link.color ? `color-${link.color}` : 'color-dark';
+                            return `<a href="${link.url}" class="social-link ${colorClass}" title="${title}" target="_blank" rel="noopener noreferrer">${icon}</a>`;
+                        }).join('');
+                        html += '</div>';
+                    }
+                    
+                    socialContainer.innerHTML = html;
+                    
+                    // Append form button to correct row
+                    if (formLink) {
+                        const targetRow = document.getElementById(formInRow1 ? 'social-row-1' : 'social-row-2');
+                        if (targetRow) targetRow.appendChild(formButton);
+                    }
+                    
+                    // Append share button to correct row
+                    if (shareLink) {
+                        const targetRow = document.getElementById(shareInRow1 ? 'social-row-1' : 'social-row-2');
+                        if (targetRow) targetRow.appendChild(shareBtn);
+                    }
+                }
+                
+                // Show sidebar content after loading
+                document.getElementById('sidebar-content').classList.remove('loading-hidden');
+                socialContainer.classList.remove('loading-hidden');
+                
+                // Show/hide language switcher
+                if (settings.showLanguageSwitcher === 'hide') {
+                    document.querySelector('.lang-links').style.display = 'none';
+                    document.querySelector('.lang-links-mobile').style.display = 'none';
+                }
+            })
+            .catch(() => {
+                // Show default content if settings fail to load
+                document.getElementById('sidebar-content').classList.remove('loading-hidden');
+                document.getElementById('social-links').classList.remove('loading-hidden');
+            });
+
+        // Load properties
+        fetch('content/properties.json')
+            .then(r => r.json())
+            .then(data => {
+                const properties = data.items || data;
+                const container = document.getElementById('properties-container');
+                container.innerHTML = '';
+                
+                properties.forEach((prop, index) => {
+                    const carouselId = index + 1;
+                    const badgeClass = prop.type === 'sale' ? 'badge-sale' : 
+                                       prop.type === 'commercial' ? 'badge-commercial' : 'badge-rental';
+                    const badgeText = prop.type === 'sale' ? 'For Sale' : 
+                                      prop.type === 'commercial' ? 'Commercial' : 'For Rent';
+                    
+                    const priceDisplay = prop.type === 'sale' ? 
+                        `€${prop.price.toLocaleString()}` : 
+                        `€${prop.price.toLocaleString()} <span>/month</span>`;
+                    
+                    const featuresHtml = prop.features ? prop.features.map(f => {
+                        const icon = featureIcons[f.icon] || 'fa-check';
+                        return `<span class="feature"><i class="fas ${icon}"></i> ${f.label}</span>`;
+                    }).join('') : '';
+                    
+                    const imageFitClass = prop.imageFit === 'contain' ? 'contain' : '';
+                    
+                    const slidesHtml = prop.images ? prop.images.map((img, i) => {
+    const imgUrl = typeof img === 'string' ? img : img.src;
+    return `<div class="carousel-slide ${i === 0 ? 'active' : ''}">
+        <img src="${imgUrl}" alt="${prop.title}" class="${imageFitClass}">
+    </div>`;
+}).join('') : '';
+                    
+                    const dotsHtml = prop.images ? prop.images.map((_, i) => 
+                        `<span class="dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${carouselId}, ${i})"></span>`
+                    ).join('') : '';
+                    
+                    const whatsappMsg = encodeURIComponent(`Hi! I'm interested in the ${prop.title} (€${prop.price.toLocaleString()}${prop.type !== 'sale' ? '/month' : ''})`);
+                    
+                    container.innerHTML += `
+                        <article class="property-card">
+                            <div class="carousel" data-carousel="${carouselId}">
+                                <span class="property-badge ${badgeClass}">${badgeText}</span>
+                                ${prop.region ? `<span class="location-indicator">${prop.region}</span>` : ''}
+                                <div class="carousel-slides">${slidesHtml}</div>
+                                <button class="carousel-btn prev" onclick="moveSlide(${carouselId}, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="carousel-btn next" onclick="moveSlide(${carouselId}, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="carousel-dots">${dotsHtml}</div>
+                            </div>
+                            <div class="property-info">
+                                <div class="property-header">
+                                    <div>
+                                        <h3 class="property-title">${prop.title}</h3>
+                                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> ${prop.location.replace(', Malta', '').replace(' Malta', '')}</p>
+                                    </div>
+                                    <p class="property-price">${priceDisplay}</p>
+                                </div>
+                                <p class="property-description">${prop.description}</p>
+                                <div class="property-features">${featuresHtml}</div>
+                                <a href="https://wa.me/${prop.whatsapp || '356XXXXXXXX'}?text=${whatsappMsg}" class="contact-btn" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Send a Message
+                                </a>
+                            </div>
+                        </article>
+                    `;
+                });
+                
+                // Initialize carousel state
+                properties.forEach((_, i) => {
+                    currentSlides[i + 1] = 0;
+                });
+            })
+            .catch(() => {
+                document.getElementById('properties-container').innerHTML = 
+                    '<p class="loading">No properties found. Add some in the admin panel!</p>';
+            });
+
+        // Carousel functions
+        const currentSlides = {};
+
+        function moveSlide(carouselId, direction) {
+            const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+            
+            slides[currentSlides[carouselId]].classList.remove('active');
+            currentSlides[carouselId] += direction;
+            if (currentSlides[carouselId] >= totalSlides) currentSlides[carouselId] = 0;
+            else if (currentSlides[carouselId] < 0) currentSlides[carouselId] = totalSlides - 1;
+            slides[currentSlides[carouselId]].classList.add('active');
+            updateDots(carouselId);
+        }
+
+        function goToSlide(carouselId, slideIndex) {
+            if (slideIndex === currentSlides[carouselId]) return;
+            const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            slides[currentSlides[carouselId]].classList.remove('active');
+            currentSlides[carouselId] = slideIndex;
+            slides[slideIndex].classList.add('active');
+            updateDots(carouselId);
+        }
+
+        function updateDots(carouselId) {
+            const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+            const dots = carousel.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlides[carouselId]);
+            });
+        }
+
+        // ============================================
+        // TRANSLATION SYSTEM
+        // ============================================
+        const TRANSLATE_PROXY = 'https://translate.haize-realty.com/translate';
+        
+        // Store original English texts
+        const originalTexts = {
+            bio: '',
+            pageTitle: '',
+            properties: [] // Array of {title, description, features: []}
+        };
+        
+        // Static UI translations (pre-translated, no API needed)
+        const uiTranslations = {
+            en: {
+                forSale: 'For Sale',
+                forRent: 'For Rent',
+                commercial: 'Commercial',
+                sendMessage: 'Send a Message',
+                perMonth: '/month'
+            },
+            fr: {
+                forSale: 'À Vendre',
+                forRent: 'À Louer',
+                commercial: 'Commercial',
+                sendMessage: 'Envoyer un Message',
+                perMonth: '/mois'
+            },
+            es: {
+                forSale: 'En Venta',
+                forRent: 'En Alquiler',
+                commercial: 'Comercial',
+                sendMessage: 'Enviar Mensaje',
+                perMonth: '/mes'
+            }
+        };
+
+        // Common feature translations (pre-translated)
+        const featureTranslations = {
+            en: {
+                'Bedroom': 'Bedroom', 'Bedrooms': 'Bedrooms',
+                'Bathroom': 'Bathroom', 'Bathrooms': 'Bathrooms',
+                'Parking': 'Parking', 'Garage': 'Garage',
+                'Garden': 'Garden', 'Pool': 'Pool', 'Swimming Pool': 'Swimming Pool',
+                'Balcony': 'Balcony', 'Terrace': 'Terrace',
+                'Sea View': 'Sea View', 'City View': 'City View',
+                'Air Conditioning': 'Air Conditioning', 'A/C': 'A/C',
+                'Furnished': 'Furnished', 'Unfurnished': 'Unfurnished',
+                'Elevator': 'Elevator', 'Lift': 'Lift',
+                'Storage': 'Storage', 'Basement': 'Basement',
+                'Roof': 'Roof', 'Penthouse': 'Penthouse',
+                'New': 'New', 'Renovated': 'Renovated',
+                'Pet Friendly': 'Pet Friendly', 'Pets Allowed': 'Pets Allowed',
+                'Wheelchair Accessible': 'Wheelchair Accessible',
+                'Security': 'Security', 'Doorman': 'Doorman',
+                'Gym': 'Gym', 'Fitness': 'Fitness',
+                'Laundry': 'Laundry', 'Washing Machine': 'Washing Machine',
+                'Dishwasher': 'Dishwasher', 'Kitchen': 'Kitchen',
+                'Office': 'Office', 'Study': 'Study',
+                'Fireplace': 'Fireplace', 'Heating': 'Heating',
+                'Internet': 'Internet', 'WiFi': 'WiFi',
+                'Cable TV': 'Cable TV', 'Satellite': 'Satellite',
+                'sqm': 'sqm', 'm²': 'm²', 'sq ft': 'sq ft'
+            },
+            fr: {
+                'Bedroom': 'Chambre', 'Bedrooms': 'Chambres',
+                'Bathroom': 'Salle de bain', 'Bathrooms': 'Salles de bain',
+                'Parking': 'Parking', 'Garage': 'Garage',
+                'Garden': 'Jardin', 'Pool': 'Piscine', 'Swimming Pool': 'Piscine',
+                'Balcony': 'Balcon', 'Terrace': 'Terrasse',
+                'Sea View': 'Vue Mer', 'City View': 'Vue Ville',
+                'Air Conditioning': 'Climatisation', 'A/C': 'Clim',
+                'Furnished': 'Meublé', 'Unfurnished': 'Non Meublé',
+                'Elevator': 'Ascenseur', 'Lift': 'Ascenseur',
+                'Storage': 'Rangement', 'Basement': 'Sous-sol',
+                'Roof': 'Toit', 'Penthouse': 'Penthouse',
+                'New': 'Neuf', 'Renovated': 'Rénové',
+                'Pet Friendly': 'Animaux Acceptés', 'Pets Allowed': 'Animaux Acceptés',
+                'Wheelchair Accessible': 'Accès Handicapé',
+                'Security': 'Sécurité', 'Doorman': 'Gardien',
+                'Gym': 'Salle de Sport', 'Fitness': 'Fitness',
+                'Laundry': 'Buanderie', 'Washing Machine': 'Lave-linge',
+                'Dishwasher': 'Lave-vaisselle', 'Kitchen': 'Cuisine',
+                'Office': 'Bureau', 'Study': 'Bureau',
+                'Fireplace': 'Cheminée', 'Heating': 'Chauffage',
+                'Internet': 'Internet', 'WiFi': 'WiFi',
+                'Cable TV': 'TV Câblée', 'Satellite': 'Satellite',
+                'sqm': 'm²', 'm²': 'm²', 'sq ft': 'pi²'
+            },
+            es: {
+                'Bedroom': 'Dormitorio', 'Bedrooms': 'Dormitorios',
+                'Bathroom': 'Baño', 'Bathrooms': 'Baños',
+                'Parking': 'Parking', 'Garage': 'Garaje',
+                'Garden': 'Jardín', 'Pool': 'Piscina', 'Swimming Pool': 'Piscina',
+                'Balcony': 'Balcón', 'Terrace': 'Terraza',
+                'Sea View': 'Vista al Mar', 'City View': 'Vista Ciudad',
+                'Air Conditioning': 'Aire Acondicionado', 'A/C': 'A/C',
+                'Furnished': 'Amueblado', 'Unfurnished': 'Sin Amueblar',
+                'Elevator': 'Ascensor', 'Lift': 'Ascensor',
+                'Storage': 'Almacén', 'Basement': 'Sótano',
+                'Roof': 'Azotea', 'Penthouse': 'Ático',
+                'New': 'Nuevo', 'Renovated': 'Renovado',
+                'Pet Friendly': 'Mascotas Permitidas', 'Pets Allowed': 'Mascotas Permitidas',
+                'Wheelchair Accessible': 'Acceso para Sillas de Ruedas',
+                'Security': 'Seguridad', 'Doorman': 'Portero',
+                'Gym': 'Gimnasio', 'Fitness': 'Fitness',
+                'Laundry': 'Lavandería', 'Washing Machine': 'Lavadora',
+                'Dishwasher': 'Lavavajillas', 'Kitchen': 'Cocina',
+                'Office': 'Oficina', 'Study': 'Estudio',
+                'Fireplace': 'Chimenea', 'Heating': 'Calefacción',
+                'Internet': 'Internet', 'WiFi': 'WiFi',
+                'Cable TV': 'TV por Cable', 'Satellite': 'Satélite',
+                'sqm': 'm²', 'm²': 'm²', 'sq ft': 'pies²'
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Get cache key
+        function getCacheKey(text, lang) {
+            return `translate_${lang}_${text.substring(0, 50)}`;
+        }
+
+        // Check cache for a text
+        function getCachedTranslation(text, lang) {
+            const cacheKey = getCacheKey(text, lang);
+            return localStorage.getItem(cacheKey);
+        }
+
+        // Save translation to cache
+        function cacheTranslation(text, lang, translation) {
+            const cacheKey = getCacheKey(text, lang);
+            try {
+                localStorage.setItem(cacheKey, translation);
+            } catch (e) {
+                // localStorage full, clear old translations
+                clearOldCache();
+                try {
+                    localStorage.setItem(cacheKey, translation);
+                } catch (e2) {
+                    console.warn('Could not cache translation');
+                }
+            }
+        }
+
+        // Clear old cache entries
+        function clearOldCache() {
+            const keys = Object.keys(localStorage).filter(k => k.startsWith('translate_'));
+            // Remove half of cached translations
+            keys.slice(0, Math.floor(keys.length / 2)).forEach(k => localStorage.removeItem(k));
+        }
+
+        // Batch translate multiple texts at once
+        async function translateBatch(texts, targetLang) {
+            if (!texts.length || targetLang === 'en') return texts;
+            
+            // Check cache for each text
+            const results = new Array(texts.length);
+            const uncachedTexts = [];
+            const uncachedIndices = [];
+            
+            texts.forEach((text, i) => {
+                const cached = getCachedTranslation(text, targetLang);
+                if (cached) {
+                    results[i] = cached;
+                } else {
+                    uncachedTexts.push(text);
+                    uncachedIndices.push(i);
+                }
+            });
+            
+            // If all cached, return early
+            if (uncachedTexts.length === 0) {
+                console.log('All translations from cache');
+                return results;
+            }
+            
+            console.log(`Translating ${uncachedTexts.length} texts (${texts.length - uncachedTexts.length} from cache)`);
+            
+            try {
+                const response = await fetch(TRANSLATE_PROXY.replace('/translate', '/translate-batch'), {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ texts: uncachedTexts, lang: targetLang })
+                });
+
+                const data = await response.json();
+                const translations = data.translations || uncachedTexts;
+                
+                // Fill in results and cache
+                translations.forEach((translation, i) => {
+                    const originalIndex = uncachedIndices[i];
+                    results[originalIndex] = translation;
+                    cacheTranslation(uncachedTexts[i], targetLang, translation);
+                });
+                
+                return results;
+            } catch (err) {
+                console.error('Batch translation error:', err);
+                // Return originals for failed translations
+                uncachedIndices.forEach((idx, i) => {
+                    results[idx] = uncachedTexts[i];
+                });
+                return results;
+            }
+        }
+
+        // Translate a feature label - use pre-translated if available
+        function translateFeatureLocal(label, targetLang) {
+            if (targetLang === 'en') return { translated: label, needsApi: false };
+            
+            // Check if it matches a pre-translated feature (with number prefix like "2 Bedrooms")
+            const match = label.match(/^(\d+)\s+(.+)$/);
+            if (match) {
+                const num = match[1];
+                const word = match[2];
+                if (featureTranslations[targetLang][word]) {
+                    return { translated: `${num} ${featureTranslations[targetLang][word]}`, needsApi: false };
+                }
+            }
+            
+            // Check direct match
+            if (featureTranslations[targetLang][label]) {
+                return { translated: featureTranslations[targetLang][label], needsApi: false };
+            }
+            
+            // Check cache
+            const cached = getCachedTranslation(label, targetLang);
+            if (cached) {
+                return { translated: cached, needsApi: false };
+            }
+            
+            // Needs API translation
+            return { translated: label, needsApi: true };
+        }
+
+        // Apply translations to the page
+        async function applyLanguage(lang) {
+            if (lang === currentLang) return;
+            
+            // Show loading state
+            document.querySelectorAll('.lang-link').forEach(btn => btn.classList.add('loading'));
+            
+            currentLang = lang;
+            const ui = uiTranslations[lang];
+
+            if (lang === 'en') {
+                // Restore English originals
+                document.getElementById('bio').textContent = originalTexts.bio;
+                document.getElementById('page-title').textContent = originalTexts.pageTitle;
+                
+                const cards = document.querySelectorAll('.property-card');
+                cards.forEach((card, i) => {
+                    const orig = originalTexts.properties[i];
+                    if (!orig) return;
+                    
+                    const titleEl = card.querySelector('.property-title');
+                    const descEl = card.querySelector('.property-description');
+                    const badgeEl = card.querySelector('.property-badge');
+                    const btnEl = card.querySelector('.contact-btn');
+                    const priceEl = card.querySelector('.property-price span');
+                    const featureEls = card.querySelectorAll('.feature');
+                    
+                    if (titleEl) titleEl.textContent = orig.title;
+                    if (descEl) descEl.textContent = orig.description;
+                    if (badgeEl) {
+                        if (badgeEl.classList.contains('badge-sale')) badgeEl.textContent = ui.forSale;
+                        else if (badgeEl.classList.contains('badge-rental')) badgeEl.textContent = ui.forRent;
+                        else if (badgeEl.classList.contains('badge-commercial')) badgeEl.textContent = ui.commercial;
+                    }
+                    if (btnEl) btnEl.innerHTML = `<i class="fab fa-whatsapp"></i> ${ui.sendMessage}`;
+                    if (priceEl) priceEl.textContent = ui.perMonth;
+                    
+                    featureEls.forEach((featureEl, j) => {
+                        if (orig.features[j]) {
+                            const icon = featureEl.querySelector('i');
+                            const iconHtml = icon ? icon.outerHTML : '';
+                            featureEl.innerHTML = `${iconHtml} ${orig.features[j]}`;
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.lang-link').forEach(btn => btn.classList.remove('loading'));
+                return;
+            }
+
+            // Collect all texts that need translation
+            const textsToTranslate = [];
+            const textMapping = []; // Track what each text is for
+            
+            // Bio
+            if (originalTexts.bio && !getCachedTranslation(originalTexts.bio, lang)) {
+                textsToTranslate.push(originalTexts.bio);
+                textMapping.push({ type: 'bio' });
+            }
+            
+            // Page title
+            if (originalTexts.pageTitle && !getCachedTranslation(originalTexts.pageTitle, lang)) {
+                textsToTranslate.push(originalTexts.pageTitle);
+                textMapping.push({ type: 'pageTitle' });
+            }
+            
+            // Property titles and descriptions
+            originalTexts.properties.forEach((prop, i) => {
+                if (prop.title && !getCachedTranslation(prop.title, lang)) {
+                    textsToTranslate.push(prop.title);
+                    textMapping.push({ type: 'propTitle', index: i });
+                }
+                if (prop.description && !getCachedTranslation(prop.description, lang)) {
+                    textsToTranslate.push(prop.description);
+                    textMapping.push({ type: 'propDesc', index: i });
+                }
+                // Features that need API
+                prop.features.forEach((feat, j) => {
+                    const result = translateFeatureLocal(feat, lang);
+                    if (result.needsApi) {
+                        textsToTranslate.push(feat);
+                        textMapping.push({ type: 'feature', propIndex: i, featIndex: j });
+                    }
+                });
+            });
+            
+            // Batch translate all at once
+            let translations = [];
+            if (textsToTranslate.length > 0) {
+                translations = await translateBatch(textsToTranslate, lang);
+            }
+            
+            // Apply translations
+            let transIdx = 0;
+            
+            // Bio
+            const bioEl = document.getElementById('bio');
+            if (originalTexts.bio) {
+                const cached = getCachedTranslation(originalTexts.bio, lang);
+                if (cached) {
+                    bioEl.textContent = cached;
+                } else if (textMapping[transIdx]?.type === 'bio') {
+                    bioEl.textContent = translations[transIdx++];
+                }
+            }
+            
+            // Page title
+            const titleEl = document.getElementById('page-title');
+            if (originalTexts.pageTitle) {
+                const cached = getCachedTranslation(originalTexts.pageTitle, lang);
+                if (cached) {
+                    titleEl.textContent = cached;
+                } else if (textMapping[transIdx]?.type === 'pageTitle') {
+                    titleEl.textContent = translations[transIdx++];
+                }
+            }
+            
+            // Property cards
+            const cards = document.querySelectorAll('.property-card');
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const orig = originalTexts.properties[i];
+                if (!orig) continue;
+
+                const propTitleEl = card.querySelector('.property-title');
+                const descEl = card.querySelector('.property-description');
+                const badgeEl = card.querySelector('.property-badge');
+                const btnEl = card.querySelector('.contact-btn');
+                const priceEl = card.querySelector('.property-price span');
+                const featureEls = card.querySelectorAll('.feature');
+
+                // Title
+                if (propTitleEl && orig.title) {
+                    const cached = getCachedTranslation(orig.title, lang);
+                    if (cached) {
+                        propTitleEl.textContent = cached;
+                    } else if (textMapping[transIdx]?.type === 'propTitle' && textMapping[transIdx]?.index === i) {
+                        propTitleEl.textContent = translations[transIdx++];
+                    }
+                }
+                
+                // Description
+                if (descEl && orig.description) {
+                    const cached = getCachedTranslation(orig.description, lang);
+                    if (cached) {
+                        descEl.textContent = cached;
+                    } else if (textMapping[transIdx]?.type === 'propDesc' && textMapping[transIdx]?.index === i) {
+                        descEl.textContent = translations[transIdx++];
+                    }
+                }
+                
+                // UI elements
+                if (badgeEl) {
+                    if (badgeEl.classList.contains('badge-sale')) badgeEl.textContent = ui.forSale;
+                    else if (badgeEl.classList.contains('badge-rental')) badgeEl.textContent = ui.forRent;
+                    else if (badgeEl.classList.contains('badge-commercial')) badgeEl.textContent = ui.commercial;
+                }
+                if (btnEl) {
+                    btnEl.innerHTML = `<i class="fab fa-whatsapp"></i> ${ui.sendMessage}`;
+                }
+                if (priceEl) {
+                    priceEl.textContent = ui.perMonth;
+                }
+                
+                // Features
+                for (let j = 0; j < featureEls.length; j++) {
+                    const featureEl = featureEls[j];
+                    const origFeature = orig.features[j];
+                    if (origFeature) {
+                        const icon = featureEl.querySelector('i');
+                        const iconHtml = icon ? icon.outerHTML : '';
+                        
+                        const localResult = translateFeatureLocal(origFeature, lang);
+                        if (!localResult.needsApi) {
+                            featureEl.innerHTML = `${iconHtml} ${localResult.translated}`;
+                        } else if (textMapping[transIdx]?.type === 'feature' && textMapping[transIdx]?.propIndex === i && textMapping[transIdx]?.featIndex === j) {
+                            featureEl.innerHTML = `${iconHtml} ${translations[transIdx++]}`;
+                        }
+                    }
+                }
+            }
+
+            // Remove loading state
+            document.querySelectorAll('.lang-link').forEach(btn => btn.classList.remove('loading'));
+        }
+
+        // Store original texts after content loads
+        function storeOriginalTexts() {
+            originalTexts.bio = document.getElementById('bio').textContent;
+            originalTexts.pageTitle = document.getElementById('page-title').textContent;
+            
+            document.querySelectorAll('.property-card').forEach(card => {
+                const features = [];
+                card.querySelectorAll('.feature').forEach(f => {
+                    // Get text without the icon
+                    const text = f.textContent.trim();
+                    features.push(text);
+                });
+                
+                originalTexts.properties.push({
+                    title: card.querySelector('.property-title')?.textContent || '',
+                    description: card.querySelector('.property-description')?.textContent || '',
+                    features: features
+                });
+            });
+        }
+
+        // Initialize language toggle after a short delay (to ensure content loaded)
+        setTimeout(() => {
+            storeOriginalTexts();
+            
+            document.querySelectorAll('.lang-link').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const lang = btn.dataset.lang;
+                    document.querySelectorAll('.lang-link').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    await applyLanguage(lang);
+                });
+            });
+        }, 500);
+
+        // Share website function
+        function shareWebsite() {
+            const shareData = {
+                title: 'Haize Realty Malta',
+                text: 'Malta realty with soul - Find your perfect property in Malta',
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard!');
+                }).catch(() => {
+                    // Final fallback
+                    prompt('Copy this link:', window.location.href);
+                });
+            }
+        }
+    </script>
+   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"950e79eadfd2a60417742ad418b050be"})});</script>
+</body>
+</html>
