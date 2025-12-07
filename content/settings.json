@@ -27,12 +27,9 @@
     {
       "platform": "linkedin",
       "url": "https://www.linkedin.com/in/thomas-inchauspe-0705aa383/"
-    },
-    {
-      "platform": "form",
-      "url": "https://www.form.haize-realty.com/"
     }
   ],
-  "socialLinksLayout": "single-row",
-  "pageTitle": "Highlighted Properties"
+  "formButtonText": "Find your place!",
+  "pageTitle": "Highlighted Properties",
+  "socialLinksLayout": "single-row"
 }
