@@ -1,0 +1,160 @@
+backend:
+  name: github
+  repo: nchsp/haize-realty
+  branch: main
+  auth_type: pkce
+  app_id: Ov23li355NiPS8o8BQem
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "agent"
+        label: "Your Information"
+        file: "content/settings.json"
+        fields:
+          - { label: "Your Name", name: "name", widget: "string" }
+          - { label: "Profile Photo", name: "photo", widget: "image", required: false }
+          - label: "Photo Shape"
+            name: "photoShape"
+            widget: "select"
+            options:
+              - { label: "⭕ Circle (portrait)", value: "circle" }
+              - { label: "🖼️ Landscape (wide)", value: "landscape" }
+            default: "circle"
+          - { label: "Favicon (browser tab icon)", name: "favicon", widget: "image", required: false, hint: "Square image, at least 32x32px. PNG or ICO recommended." }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "WhatsApp Number (just digits)", name: "whatsapp", widget: "string" }
+          - label: "Social Links"
+            name: "socialLinks"
+            widget: "list"
+            hint: "Add, remove, or drag to reorder your social links"
+            fields:
+              - label: "Platform"
+                name: "platform"
+                widget: "select"
+                options:
+                  - { label: "📌 Pinterest", value: "pinterest" }
+                  - { label: "📘 Facebook", value: "facebook" }
+                  - { label: "📷 Instagram", value: "instagram" }
+                  - { label: "🧵 Threads", value: "threads" }
+                  - { label: "💼 LinkedIn", value: "linkedin" }
+                  - { label: "🐦 Twitter/X", value: "twitter" }
+                  - { label: "🎵 TikTok", value: "tiktok" }
+                  - { label: "▶️ YouTube", value: "youtube" }
+                  - { label: "💬 WhatsApp", value: "whatsapp" }
+                  - { label: "✈️ Telegram", value: "telegram" }
+                  - { label: "✉️ Email", value: "email" }
+                  - { label: "🌐 Website", value: "website" }
+                  - { label: "📋 Form", value: "form" }
+              - { label: "URL", name: "url", widget: "string" }
+              - label: "Row"
+                name: "row"
+                widget: "select"
+                options:
+                  - { label: "Row 1 (top)", value: "1" }
+                  - { label: "Row 2 (bottom)", value: "2" }
+                default: "1"
+                hint: "Which row to display this link on"
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options:
+                  - { label: "⬛ Dark", value: "dark" }
+                  - { label: "🩵 Teal", value: "teal" }
+                  - { label: "🟡 Gold", value: "gold" }
+                  - { label: "🌊 Lagoon", value: "lagoon" }
+                  - { label: "⬜ White", value: "white" }
+                  - { label: "🔴 Red", value: "red" }
+                default: "dark"
+                hint: "Background color of the icon (for Form, this sets the button color)"
+          - label: "Form Button Text"
+            name: "formButtonText"
+            widget: "string"
+            default: "Find a Rental"
+            required: false
+            hint: "Text shown on the form button (e.g., 'Find a Rental', 'Renting?')"
+          - label: "Language Switcher"
+            name: "showLanguageSwitcher"
+            widget: "select"
+            options:
+              - { label: "Show (EN/FR/ES)", value: "show" }
+              - { label: "Hide", value: "hide" }
+            default: "show"
+            hint: "Show or hide the language toggle"
+          - { label: "Page Title", name: "pageTitle", widget: "string", default: "Highlighted Properties", hint: "The heading above your property listings" }
+
+  - name: "properties"
+    label: "Properties"
+    files:
+      - name: "property-list"
+        label: "All Properties"
+        file: "content/properties.json"
+        fields:
+          - name: "items"
+            label: "Properties"
+            widget: "list"
+            hint: "Add, remove, or drag to reorder properties"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - label: "Region"
+                name: "region"
+                widget: "select"
+                options:
+                  - { label: "None (hide)", value: "" }
+                  - "Central Malta"
+                  - "North Malta"
+                  - "North-West Malta"
+                  - "North-East Malta"
+                  - "South Malta"
+                  - "South-West Malta"
+                  - "South-East Malta"
+                  - "West Malta"
+                  - "East Malta"
+                  - "Gozo"
+                  - "Comino"
+                required: false
+              - { label: "Type", name: "type", widget: "select", options: ["rental", "sale", "commercial"] }
+              - { label: "Price (just the number)", name: "price", widget: "number" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "WhatsApp Number", name: "whatsapp", widget: "string" }
+              - label: "Image Fit"
+                name: "imageFit"
+                widget: "select"
+                options:
+                  - { label: "Cover (fill frame, may crop)", value: "cover" }
+                  - { label: "Contain (show full image)", value: "contain" }
+                default: "cover"
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                field: { label: "Image", name: "image", widget: "image" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                fields:
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    options:
+                      - { label: "🛏️ Beds", value: "beds" }
+                      - { label: "🛁 Baths", value: "baths" }
+                      - { label: "📐 Square Meters", value: "sqm" }
+                      - { label: "🚗 Parking", value: "parking" }
+                      - { label: "🌊 Sea View", value: "seaview" }
+                      - { label: "☀️ Terrace", value: "terrace" }
+                      - { label: "❄️ A/C", value: "ac" }
+                      - { label: "📶 WiFi", value: "wifi" }
+                      - { label: "🐾 Pets OK", value: "pets" }
+                      - { label: "🏊 Pool", value: "pool" }
+                      - { label: "🌳 Garden", value: "garden" }
+                      - { label: "🏖️ Beach", value: "beach" }
+                      - { label: "🏢 Office", value: "office" }
+                      - { label: "👥 Desks", value: "desks" }
+                  - { label: "Label", name: "label", widget: "string" }
