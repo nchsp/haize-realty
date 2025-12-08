@@ -9,20 +9,22 @@
   "whatsapp": "35699977388",
   "socialLinks": [
     {
-      "platform": "pinterest",
-      "url": "https://www.pinterest.com/haizerealty/"
-    },
-    {
       "platform": "facebook",
-      "url": "https://www.facebook.com/profile.php?id=61579815594446"
+      "url": "https://www.facebook.com/profile.php?id=61579815594446",
+      "row": "1"
     },
     {
       "platform": "instagram",
-      "url": "https://www.instagram.com/haize.realty/"
+      "url": "https://www.instagram.com/haize.realty/",
+      "row": "1"
     },
     {
       "platform": "threads",
       "url": "https://www.threads.com/@haize.realty"
+    },
+    {
+      "platform": "pinterest",
+      "url": "https://www.pinterest.com/haizerealty/"
     },
     {
       "platform": "linkedin",
@@ -33,12 +35,6 @@
       "url": "https://www.form.haize-realty.com/",
       "row": "2",
       "color": "red"
-    },
-    {
-      "platform": "share",
-      "url": "haize-realty.com",
-      "row": "1",
-      "color": "white"
     }
   ],
   "formButtonText": "Find your place!",
