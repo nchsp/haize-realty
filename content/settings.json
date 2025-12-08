@@ -9,30 +9,44 @@
   "whatsapp": "35699977388",
   "socialLinks": [
     {
-      "platform": "pinterest",
-      "url": "https://www.pinterest.com/haizerealty/"
-    },
-    {
       "platform": "facebook",
-      "url": "https://www.facebook.com/profile.php?id=61579815594446"
+      "url": "https://www.facebook.com/profile.php?id=61579815594446",
+      "row": "1",
+      "color": "dark"
     },
     {
       "platform": "instagram",
-      "url": "https://www.instagram.com/haize.realty/"
+      "url": "https://www.instagram.com/haize.realty/",
+      "row": "1",
+      "color": "dark"
     },
     {
       "platform": "threads",
-      "url": "https://www.threads.com/@haize.realty"
+      "url": "https://www.threads.com/@haize.realty",
+      "row": "1",
+      "color": "dark"
+    },
+    {
+      "platform": "pinterest",
+      "url": "https://www.pinterest.com/haizerealty/",
+      "row": "1",
+      "color": "dark"
     },
     {
       "platform": "linkedin",
-      "url": "https://www.linkedin.com/in/thomas-inchauspe-0705aa383/"
+      "url": "https://www.linkedin.com/in/thomas-inchauspe-0705aa383/",
+      "row": "1",
+      "color": "dark"
     },
     {
       "platform": "form",
-      "url": "https://www.form.haize-realty.com/"
+      "url": "https://www.form.haize-realty.com/",
+      "row": "2",
+      "color": "red"
     }
   ],
-  "socialLinksLayout": "single-row",
-  "pageTitle": "Highlighted Properties"
+  "formButtonText": "Find your place!",
+  "showLanguageSwitcher": "hide",
+  "pageTitle": "Highlighted Properties",
+  "socialLinksLayout": "single-row"
 }
