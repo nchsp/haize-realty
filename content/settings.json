@@ -33,6 +33,12 @@
       "url": "https://www.form.haize-realty.com/",
       "row": "2",
       "color": "red"
+    },
+    {
+      "platform": "share",
+      "url": "haize-realty.com",
+      "row": "1",
+      "color": "white"
     }
   ],
   "formButtonText": "Find your place!",
