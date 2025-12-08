@@ -1,0 +1,177 @@
+{
+  "items": [
+    {
+      "title": "Stunning penthouse",
+      "location": "St Julian's, Malta",
+      "region": "Central Malta",
+      "type": "sale",
+      "price": 860000,
+      "description": "Elevate your lifestyle with this stunning 8th-floor penthouse in St. Julian’s, boasting magnificent open views from a spacious front terrace. This fully furnished is finished to high standards. It offers an optional 1 or 2-car lock-up garages.",
+      "whatsapp": "35699977388",
+      "imageFit": "cover",
+      "images": [
+        "https://res.cloudinary.com/haize/image/upload/v1764888383/01_nfwr35.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888383/02_a1nds5.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888384/03_vwnykl.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888384/04_dc9n6b.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888383/05_a7njck.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888384/07_wdgn6c.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888384/08_s2wi5j.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764888384/09_gd3bp7.jpg"
+      ],
+      "features": [
+        {
+          "icon": "beds",
+          "label": "3 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "terrace",
+          "label": "Front terrace and Back balcony"
+        },
+        {
+          "icon": "parking",
+          "label": "Optional garage"
+        }
+      ]
+    },
+    {
+      "title": "Elegant Townhouse with a yard",
+      "location": "Manikata, Malta",
+      "region": "North Malta",
+      "type": "sale",
+      "price": 925000,
+      "description": "The home comes with a welcoming front terrace and a spacious backyard for outdoor living.\nA private jacuzzi provides an ideal space for relaxation.\nBeing freehold with airspace included, it offers excellent long-term potential.\nLocated on the ground floor, it ensures easy access and practical day-to-day living.",
+      "whatsapp": "35699977388",
+      "imageFit": "cover",
+      "images": [
+        "https://res.cloudinary.com/haize/image/upload/v1764891352/01w_u60jxx.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891353/02w_aazopo.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891353/03w_twfrbl.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891353/04w_c5qygb.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891354/05w_d3x7mj.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891357/06w_hd5ass.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891358/07w_zjivf2.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891359/08w_lm1429.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891363/09w_gowrt2.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891364/10w_bmdnhq.jpg"
+      ],
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "pool",
+          "label": "Jacuzzi"
+        },
+        {
+          "icon": "garden",
+          "label": "Exterior"
+        }
+      ]
+    },
+    {
+      "title": "Charming apartment close to seafront",
+      "location": "Gzira, Malta",
+      "region": "Central Malta",
+      "type": "rental",
+      "price": 1700,
+      "description": "Beautiful apartment close to seafront. Original features blend with modern comforts. Property consists of an open plan kitchen, living and dining area, with two balconies, two bedrooms, one with ensuite, and a spare bathroom, both with a balcony.",
+      "whatsapp": "35699977388",
+      "imageFit": "cover",
+      "images": [
+        "https://res.cloudinary.com/haize/image/upload/v1764891762/02_y84rsc.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891765/03q_ljyz1j.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891768/04q_aap0af.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891771/06_rjooj4.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891774/08_d1gohs.jpg"
+      ],
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "seaview",
+          "label": "Close to seafront"
+        },
+        {
+          "icon": "terrace",
+          "label": "Balconies"
+        }
+      ]
+    },
+    {
+      "title": "Apartment with a Terrace",
+      "location": "Sliema, Malta",
+      "region": "Central Malta",
+      "type": "rental",
+      "price": 2300,
+      "description": "Stunning modern apartment featuring sea view, terrace, fully furnished with high-end finishes. Perfect for professionals, couples or small families seeking comfort and style.",
+      "whatsapp": "35699977388",
+      "imageFit": "cover",
+      "images": [
+        "https://res.cloudinary.com/haize/image/upload/v1764891468/00_dmd8nv.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891469/01_2_iab8i6.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891470/01_lgah4n.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891475/03_lzbxat.jpg"
+      ],
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "seaview",
+          "label": "Sea View"
+        }
+      ]
+    },
+    {
+      "title": "Apartment with balcony",
+      "location": "Ibragg, Malta",
+      "region": "North Malta",
+      "type": "rental",
+      "price": 1600,
+      "description": "Nice apartment with balcony and designed interiors. Features include smart home technology and premium appliances throughout.",
+      "whatsapp": "35699977388",
+      "imageFit": "cover",
+      "images": [
+        "https://res.cloudinary.com/haize/image/upload/v1764891645/00a_kf8esk.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891652/13a_pvlfvt.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891649/12a_sdenfe.jpg",
+        "https://res.cloudinary.com/haize/image/upload/v1764891646/11a_kcirop.jpg"
+      ],
+      "features": [
+        {
+          "icon": "beds",
+          "label": "2 Bedrooms"
+        },
+        {
+          "icon": "baths",
+          "label": "2 Bathrooms"
+        },
+        {
+          "icon": "terrace",
+          "label": "Balcony"
+        }
+      ]
+    }
+  ]
+}
