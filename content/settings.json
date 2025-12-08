@@ -30,9 +30,12 @@
     },
     {
       "platform": "form",
-      "url": "https://www.form.haize-realty.com/"
+      "url": "https://www.form.haize-realty.com/",
+      "row": "2",
+      "color": "red"
     }
   ],
-  "socialLinksLayout": "single-row",
-  "pageTitle": "Highlighted Properties"
+  "formButtonText": "Find your place!",
+  "pageTitle": "Highlighted Properties",
+  "socialLinksLayout": "single-row"
 }
